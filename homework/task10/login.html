@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="入门10-2" />
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<style>
+.test{
+ box-shadow: 2px 2px 4px 2px grey;
+  width: 400px;
+  margin:0 auto;
+  font-family: arial;
+}
+form{
+  font:12px/1 arial;
+  color:#757575;
+}
+h4{
+  margin:0;
+  padding: 10px;
+  color:white;
+  background-color:#009688;
+}
+form div{
+  padding:10px 10px 0 10px;
+}
+input[id]{
+  border:none;
+  border-bottom:1px solid #808080;
+  width:100%;
+  line-height:200%;
+}
+textarea{
+   border:none;
+  border-bottom:1px solid #808080;
+  width:100%;
+}
+.bottom{
+ padding-top:0 ;
+  overflow:hidden;
+}
+.drink{
+ float:left;  
+}
+.sex{
+  float:left; 
+  margin-left:100px;
+}
+input[type="submit"]{
+  width:50px;
+  height:25px;
+  border:none;
+  margin: 10px;
+  background-color:#009688;
+  }
+</style>
+<body>
+ <div class="test">
+  <div class="header">
+    <h4>信息收集表</h4>
+  </div>
+  <form action="/c" menth="post">
+   <div>
+   <label for="name">姓名</label>
+     <br>
+   <input id="name" type="text" name="name">
+   </div>
+   <div>
+   <label for="qq">QQ</label>
+     <br>
+   <input id="qq" type="text" name="qq">
+   </div>
+   <div>
+   <label for="opinion">要说的话</label>
+      <br>
+   <textarea name="="opinion"" id="="opinion"" cols="30" rows="6"></textarea>
+   </div>
+    <div class="bottom">
+   <div class="drink">
+  <input type="checkbox" name="Milk" checked>Milk<br>
+  <input type="checkbox" name="Sugar">Sugar<br>
+  <input type="checkbox" name="Lemon">Lemon<br>
+   </div>
+   <div class="sex">
+   <input type="radio"  name="sex" checked>Male<br>
+  <input type="radio" name="sex">Female<br>
+   </div>
+      </div>
+   <input type="submit" value="提交" />
+ </form>
+   </div>
+</body>
+</html>
