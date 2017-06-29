@@ -16,9 +16,7 @@ color: red;
 color:yellow\9;/*ie/edge 6-8*/
 }`
 - IE条件注释法
-`<!--[if IE 7]>
-<link rel="stylesheet" href="ie7.css" type="text/css"/>
-<![endid]>`
+`<!--[if IE 7]> <link rel="stylesheet" href="ie7.css" type="text/css"/> <![endid]>`
 
 - 选择器前缀法
 `*html *前缀只对IE6生效`
