@@ -21,23 +21,22 @@ color:yellow\9;/*ie/edge 6-8*/
 <![endid]>`
 
 - 选择器前缀法
-`*html *前缀只对IE6生效
-*+html *+前缀只对IE7生效
-@media screen\9{...}只对IE6/7生效
-@media \0screen {body { background: red; }}只对IE8有效
-@media \0screen\,screen\9{body { background: blue; }}只对IE6/7/8有效
-@media screen\0 {body { background: green; }} 只对IE8/9/10有效;`
+`*html *前缀只对IE6生效`
+`*+html *+前缀只对IE7生效`
+`@media screen\9{...}只对IE6/7生效`
+`@media \0screen {body { background: red; }}只对IE8有效`
+`@media \0screen\,screen\9{body { background: blue; }}只对IE6/7/8有效`
 
 - 合适的框架
-1.Bootstrap(>=ie8)
-2.jQuery1.~(>=ie6),jQuery2.~(>=ie9)
+1.Bootstrap(>=ie8);
+2.jQuery1.~(>=ie6),jQuery2.~(>=ie9);
 3.Vue(>=ie9)
 
 - 针对各浏览器内核css写法
-1.-webkit- ，针对safari，chrome浏览器的内核CSS写法
-2.-moz-，针对firefox浏览器的内核CSS写法
-3.-ms-，针对ie内核的CSS写法
-4.-o-，针对Opera内核的CSS写法
+1.-webkit- ，针对safari，chrome浏览器的内核CSS写法;
+2.-moz-，针对firefox浏览器的内核CSS写法;
+3.-ms-，针对ie内核的CSS写法;
+4.-o-，针对Opera内核的CSS写法.
 
 
 #### （四）解释名词
