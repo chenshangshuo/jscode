@@ -4,95 +4,68 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <style>
-  .model{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.8);
-    z-index: 99;
-    display: none;
-  }
-  .center{
-    width: 400px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    background: #fff;
-    z-index: 100;
-  }
-  h4{
-    padding: 10px;
-    margin: 0;
-  }
-  .center .cancel{
-    font-size: 20px;
-    position: absolute;
-    top: 7px;
-    right: 15px;
-  }
-  .center .content{
-    border-top: 1px solid #ccc;
-    padding: 10px;
-  }
-  .center .footer{
-    float: right;
-    margin: 10px;
-  }
-  a{
-    text-decoration: none;
-    color: #333;
-  }
-  .center .footer a{
-    margin: 5px;
-  }
-  .open{
-    display: block;
-  }
+    #box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    select{
+      width: 70px;
+    }
+    select,button{
+      margin: 2px;
+      padding: 2px;
+    }
   </style>
 </head>
 <body>
-  <button>点我</button>
-  <div class="add"></div>
-  <div class="model">
-    <div class="center">
-      <h4>我是标题1</h4>
-      <a class="cancel" href="#">x</a>
-      <div class="content">
-        <p>我是内容1</p>
-        <p>我是内容2</p>
-      </div>
-      <div class="footer">
-        <a href="#">取消</a>
-        <a href="#">确定</a>
-      </div>
-    </div>
+  <div id="box">
+    <select name="time" id="time">
+      <option value="1" selected>1分钟</option>
+      <option value="5">5分钟</option>
+      <option value="10">10分钟</option>
+    </select>
+    <button id="start">start</button>
+    <button id="pause">pause</button>
+    <button id="resume">resume</button>
+    <div id="output"></div>
   </div>
-<script>
-  var button = document.querySelector('button')
-  var model = document.querySelector('.model')
-  var center = document.querySelector('.center')
-  var cancel = document.querySelector('.center .cancel')
-  button.addEventListener('click',function(){
-    model.classList.add('open')
-    center.classList.add('open')
-  })
-  cancel.addEventListener('click',function(){
-    model.classList.remove('open')
-    center.classList.remove('open')
-  })
-  model.addEventListener('click',function(){
-    model.classList.remove('open')
-    center.classList.remove('open')
-  })
-  center.addEventListener('click',function(e){
-    e.stopPropagation()
-  })
-</script>
 </body>
+<script>
+  var output = document.querySelector('#output')
+  var start = document.querySelector('#start')
+  var time = document.querySelector('#box #time')
+  var pause = document.querySelector('#pause')
+  var resume = document.querySelector('#resume')
+  let lastTimerId
+  function showTime(){
+    output.innerText = timeLeft + '秒'
+    if (timeLeft === 0) {
+      return output.innerText = '中奖了'
+    }
+    timeLeft = timeLeft -1
+    lastTimerId = setTimeout(showTime,1000)
+  }
+  start.onclick = function(){
+   var valueNumber = parseInt(time.value)
+   var seconds = valueNumber*60
+   timeLeft = seconds
+   if (lastTimerId) {
+    window.clearTimeout(lastTimerId)
+   }
+   showTime()
+  }
+  pause.onclick = function(){
+    if (lastTimerId) {
+      window.clearTimeout(lastTimerId)
+    }
+  }
+  resume.onclick = function(){
+       if (lastTimerId) {
+    window.clearTimeout(lastTimerId)
+  }
+    showTime()
+  }
+</script>
 </html>
