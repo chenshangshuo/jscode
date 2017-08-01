@@ -101,7 +101,7 @@
 		$wrap.append($imgs.first().clone())
 		$wrap.prepend($imgs.last().clone())
 		$wrap.css({'width': (imgCount+2)*$width})
-		$wrap.css({'left': -$width}) //css具体用法
+		$wrap.css({'left': -$width}) 
 
 		$nextBtn.click(function(){
 			playNext(1)
@@ -145,7 +145,7 @@
 
 		function setBgcolor(){
 			$('.buttom > li').removeClass('active')
-											 .eq(pageIndex).addClass('active')
+			                 .eq(pageIndex).addClass('active')
 		}
 
 		$('.buttom > li').click(function(){
