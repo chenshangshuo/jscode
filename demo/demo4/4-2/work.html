@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播</title>
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<style>
+		ul,li{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.carousel{
+			width: 500px;
+			height: 350px;
+			overflow: hidden;
+			position: relative;
+		}
+		.carousel .imgs{
+			font-size: 0;
+			position: absolute;
+		}
+		.carousel .imgs>li{
+			float: left;
+		}
+		.carousel .imgs img{
+			width: 500px;
+			height: 350px;
+		}
+		.carousel .arrow{
+			text-decoration: none;
+			color: #fff;
+			position: absolute;
+			top: 50%;
+			margin-top: -25px;
+			z-index: 1;
+			display: inline-block;
+			width: 50px;
+			height: 50px;
+			background-color: #4E443C;
+			opacity: 0.6;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 50px;
+			box-shadow: 1px 1px 1px 1px #4E443C;
+		}
+		.carousel .pre{
+			left: 10px;
+		}
+		.carousel .next{
+			right: 10px;
+		}
+		span{
+			font-size: 28px;
+		}
+		.carousel .bullet{
+			position: absolute;
+			z-index: 1;
+			bottom: 10px;
+			width: 100%;
+			text-align: center;
+			font-size: 0;
+		}
+		.carousel .bullet>li{
+			height: 8px;
+			width: 30px;
+			margin: 0 3px;
+			display: inline-block;
+			border-radius: 3px;
+			background-color: #fff;
+		}
+		.carousel .bullet li.active{
+			background-color: #666;
+		}
+		.carousel a:hover{
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="carousel">
+		<ul class="imgs">
+			<li data-id="0"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/26.jpg" alt=""></a></li>
+			<li data-id="1"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/25.jpg" alt=""></a></li>
+			<li data-id="2"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/24.jpg" alt=""></a></li>
+			<li data-id="3"><a href="#"><img src="http://cdn.jirengu.com/book.jirengu.com/img/23.jpg" alt=""></a></li>
+		</ul>
+		<a class="pre arrow" href="#"><span><</span></a>
+		<a class="next arrow" href="#"><span>></span></a>
+		<ul class="bullet">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<script>
+		var $preBtn = $('.carousel .pre')
+		var $nextBtn = $('.carousel .next')
+		var $carousel = $('.carousel')
+		var $imgs = $('.carousel .imgs')
+		var $imgList = $('.carousel .imgs>li')
+		var $bullets = $('.carousel .bullet>li')
+		var $imgWidth = $('.carousel .imgs img').width()
+		var imgLength = $imgList.length
+		var pageIndex = 0
+		var isAnimate = false
+		$imgs.append($imgList.first().clone())
+		$imgs.prepend($imgList.last().clone())
+		$imgs.css({'width': (imgLength+2)*$imgWidth})
+		$imgs.css({'left': -$imgWidth})
+
+		$nextBtn.click(function(){
+			playNext(1)
+		})
+		$preBtn.click(function(){
+			playPre(1)
+		})
+		function playNext(len){
+			if (isAnimate) return
+			isAnimate = true
+			$imgs.animate({
+				'left': '-=' + $imgWidth*len
+			},function(){
+			pageIndex += len
+			if (pageIndex === imgLength) {
+				$imgs.css({'left': -$imgWidth})
+				pageIndex = 0
+			}
+			setBgcolor()
+			isAnimate = false
+		})
+		}
+		function playPre(len){
+			if (isAnimate) return
+			isAnimate = true
+			$imgs.animate({
+				'left': '+=' + $imgWidth*len
+			},function(){
+			pageIndex -= len
+			if (pageIndex === -1) {
+				$imgs.css({'left': -$imgWidth*imgLength})
+				pageIndex = imgLength - 1
+			}
+			setBgcolor()
+			isAnimate = false
+		})
+		}
+
+		function setBgcolor(){
+			$bullets.removeClass('active').eq(pageIndex).addClass('active')
+		}
+
+		$bullets.click(function(){
+			var index = $(this).index()
+			if (index>pageIndex) {
+				playNext(index-pageIndex)
+			}else if (index<pageIndex) {
+				playPre(pageIndex-index)
+			}
+		})
+		setInterval(function(){playNext(1)}, 2000)
+	</script>
+</body>
+</html>
