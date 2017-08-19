@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 400px;
+			height: 200px;
+			background-color: red;
+		}
+/*屏幕宽度>=700px时，背景色改变*/
+		@media screen and (min-width: 700px){
+			.box{
+				background-color: pink;
+			}
+		}
+/*屏幕宽度>=1000px时，背景色改变*/
+		@media screen and (min-width: 1000px){
+			.box{
+				background-color: blue;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>
