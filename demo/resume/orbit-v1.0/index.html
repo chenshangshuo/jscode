@@ -73,28 +73,39 @@
               <!--   <div class="intro">
                     <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
                 </div> --><!--//intro-->
-                <div class="item clearfix">
+                <div id="first" class="item clearfix">
                     <div class="left">
-                        <span class="project-title">音乐播放器移动端</span> - <span class="project-tagline">利用jQuery还原网易云音乐移动端页面，采用vw、vh单位适应不同分辨率的手机屏幕。项目主要分为展示页及播放页，展示页由自己mockJSON数据，通过Ajax获取，渲染至DOM中；播放页利用html5 Audo的API及阿里SVG图标，具有播放暂停效果，利用曝光加载的思路让歌词具有自动高亮，并有歌曲搜索的功能，利用函数节流思想对搜索框优化，减少对Dom节点频繁的操作。</span>
+                        <span class="project-title">音乐播放器移动端</span> - <span class="project-tagline">利用jQuery还原网易云音乐移动端页面，采用vw、vh单位适应不同分辨率的手机屏幕。项目主要分为展示页及播放页，展示页由自己mockJSON数据，通过Ajax获取，渲染至DOM中；播放页利用html5 Audo的API及阿里svg图标，具有播放暂停效果，利用曝光加载的思路让歌词具有自动高亮，并有歌曲搜索的功能。</span>
                     </div>
                     <p class="right">扫码即可预览<img class = "link" src="http://orztvqno4.bkt.clouddn.com/1504940695.png" alt=""></p>
                 </div><!--//item-->
+                <h5>项目收获</h5>
+                <ol class="list">
+                    <li>歌曲点击后如何跳转对应的播放页面？解决方法：url中添加对应的参数，通过location.search获取，split或正则获取对应参数，遍历JSON，过滤删选出对应参数的对象，获取对应的播放链接。 </li>
+                    <li>如何解决搜索框中input事件的频繁触发？利用函数思想设置定时器进行优化。</li>
+                </ol>
                 <div class="item">
                     <span class="project-title">个人建站</span> - <span class="project-tagline"></span>
                     <span class="project-tagline">采用jQuery库，RequireJS模块化，大量运用CSS3自定义动画，尝试了3D旋转、照片墙旋转木马等效果，JS部分采用平时封装的小组件如：全屏轮播、Tab切换、回到顶部等，数据交互部分利用了新浪新闻借口，采用jsonp跨域获取数据，采用瀑布流布局的方式渲染到DOM上。</span>
-                    <p><a href="https://chenshangshuo.github.io/works/Wade/js/test.html">项目预览链接</a></p>
+                    <p>项目预览链接：<span class="gitLink">https://chenshangshuo.github.io/works/Wade/js/test.html</span></p>
+                    <h5>项目收获</h5>
+                    <ol class="list">
+                        <li>熟悉了RequireJs模块化流程，文件目录较有条理。</li>
+                        <li>当首屏全屏设置时，应监听窗口的resize事件，动态改变首屏全屏的设置，体验性较好。</li>
+                    </ol>
                 </div><!--//item-->
+
                 <div class="item">
                     <span class="project-title">Vue在线简历</span> - <span class="project-tagline">Vue快速构建项目，引入element的Ui库，css采用sass编写，webpack打包，功能主要介绍：左侧编辑区Tab切换可填写人员相关信息，并可增加、删除，右侧预览区利用mvvm模式的双向绑定实现实时更新，具有预览功能。</span>
-                    <p><a href="https://chenshangshuo.github.io/vue/dist">项目预览链接</a></p>
+                    <p>项目预览链接：<span class="gitLink">https://chenshangshuo.github.io/vue/dist</span></p>
                 </div><!--//item-->
                 <div class="item">
                     <span class="project-title">天气预报界面</span> - <span class="project-tagline">利用公共接口，采用jQuery，ajax获取数据，可显示本地未来几天内天气，时间实时更新，并可查询目的地天气。</span>
-                    <p><a href="https://chenshangshuo.github.io/works/weatherforecast/index.html">项目预览链接</a></p>
+                    <p>项目预览链接: <span class="gitLink">https://chenshangshuo.github.io/works/weatherforecast/index.html</span></p>
                 </div><!--//item-->
                 <div class="item">
                     <span class="project-title">Bootstrap网站</a></span> - <span class="project-tagline">采用bootstrap框架，less预编译css，深入理解栅格系统，实现网站响应式布局。</span>
-                    <p><a href="https://chenshangshuo.github.io/works/Bootstrap/bootstrap-3.3.7-dist/index.html">项目预览链接</a></p>
+                    <p>项目预览链接: <span class="gitLink">https://chenshangshuo.github.io/works/Bootstrap/bootstrap-3.3.7-dist/index.html</span></p>
                 </div><!--//item-->
             </section><!--//section-->
             <section class="section experiences-section">
@@ -111,7 +122,7 @@
                         <p>主要负责静态页面的编写，定期更新公司网站内容。掌握了前端相关技能，能独立开展前端工作，学会看文档，遇到问题搜索解决。</p>
                     </div><!--//details-->
                 </div><!--//item-->
-
+            </section>
             <section class="skills-section section">
                 <h2 class="section-title"><i class="fa fa-rocket"></i>职业技能</h2>
                 <div class="skillset">

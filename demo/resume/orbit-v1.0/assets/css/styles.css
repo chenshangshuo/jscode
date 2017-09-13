@@ -137,19 +137,30 @@ p {
   display: block;
   clear: both;
 }
-
+.projects-section h5{
+  margin: 0;
+}
+.list{
+  padding-left: 30px;
+}
 .item .left{
   width: 460px;
   float: left;
 }
 .item .right{
   float: right;
+  margin: 0 0 0px;
 }
 .item .link{
   display: block;
   width: 90px;
 }
-
+.item p{
+    margin: 0 0 5px;
+}
+.gitLink{
+  font-size: 13px;
+}
 
 .sidebar-wrapper .degree {
   color: rgba(255, 255, 255, 0.6);
@@ -157,6 +168,7 @@ p {
   margin-top: 0;
   margin-bottom: 5px;
 }
+
 .sidebar-wrapper .education-container .item {
   margin-bottom: 15px;
 }
@@ -229,10 +241,10 @@ p {
   top: -2px;
 }
 .main-wrapper .section {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 .main-wrapper .experiences-section .item {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .main-wrapper .upper-row {
   position: relative;
@@ -266,7 +278,10 @@ p {
   margin-bottom: 30px;
 }
 .main-wrapper .projects-section .item {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+}
+.main-wrapper .projects-section #first {
+  margin-bottom: 0;
 }
 .skillset .item {
   overflow: hidden;
